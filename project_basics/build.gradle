@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='osmandroid'
-version'1.0'
+group='OsmAndroid'
+version='1.0'
 
 android {
     compileSdkVersion 25
