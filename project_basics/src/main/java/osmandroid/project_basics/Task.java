@@ -27,7 +27,7 @@ public class Task extends Activity{
     }
 
     public static void MoreApps(Context c,String Dev_Name){
-        String attach ="0";
+        String attach ="developer?id=";
         xmethod(c,attach+Dev_Name);
     }
 
