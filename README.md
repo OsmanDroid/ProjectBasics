@@ -1,3 +1,6 @@
+[![](https://jitpack.io/v/OsmAndroid/ProjectBasics.svg)](https://jitpack.io/#OsmAndroid/ProjectBasics)
+
+
 # ProjectBasics
 * Min SDK 14 (Android 4.0.1 Ice cream sandwich)
 * Written in Java
