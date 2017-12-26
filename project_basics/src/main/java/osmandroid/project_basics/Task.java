@@ -17,10 +17,10 @@ public class Task extends Activity{
 
     public static void FollowOnFb(Context c,String PageId,String PageLink){
         try {
-            Intent fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/187646031724588/"));
+            Intent fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"+PageId));
             c.startActivity(fbintent);
         } catch (Exception e) {
-            Intent fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/OsmAndroid/"));
+            Intent fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse(PageLink));
             c.startActivity(fbintent);
         }
 
