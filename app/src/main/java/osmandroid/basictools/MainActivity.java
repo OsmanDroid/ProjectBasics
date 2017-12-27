@@ -14,11 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //Task.RateApp(this,"osmandroid.a8bitpainter");
-        //Task.MoreApps(this,"OsmAndroid");
-        //Task.Feedback(this,"osmanjaber786@gmail.com","subject");
-       // Task.ShareApp(this,"osmandroid.a8bitpainter","subject","Description");
-      //  Task.CopyText(this,"tetvubwe");
+
 
     }
 }
