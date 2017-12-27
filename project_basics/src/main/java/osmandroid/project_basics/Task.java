@@ -57,7 +57,6 @@ public class Task extends Activity{
            if (clipboardManager != null) {
                clipboardManager.setPrimaryClip(clipData);
                Toast.makeText(c, "Text Copied", Toast.LENGTH_SHORT).show();
-
            }
     }
 
