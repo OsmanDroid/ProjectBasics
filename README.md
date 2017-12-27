@@ -1,3 +1,4 @@
+
 [![](https://jitpack.io/v/OsmAndroid/ProjectBasics.svg)](https://jitpack.io/#OsmAndroid/ProjectBasics)
 
 
@@ -29,12 +30,16 @@ dependencies {
 
 
  > ProjectBasics library performs simple tasks which are required in almost every app like:
-  * Rate App
 
-  * More Apps 
-  * Feedback (via mail)
-  * Follow on Facebook
-  
+
+  * Rate App
+  * Share App
+  * More Apps 
+  * Feedback (via mail)
+  * Follow on Facebook
+  * Copy Text to Clipboard
+  * More features will be added soon....
+  
   > The tasks are simple and can be achieved in a single line of code.
   
   * For example, to launch Play Store to rate your app or any other app:
@@ -63,3 +68,19 @@ dependencies {
   Task.FollowOnFb(context,"PageId","Page link");
   ```
   
+  * Share App
+  
+  ```
+  Task.ShareApp(context,"PackageName","Subject","Description");
+   ```
+  
+  * Copy Text to Clipboard
+  
+  
+    ```
+  Task.CopyText(context,"Text to be copied");
+    ```
+  
+  
+
+  
