@@ -4,9 +4,12 @@ package osmandroid.project_basics;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Toast;
 
 public class Task extends Activity{
 
@@ -16,18 +19,19 @@ public class Task extends Activity{
     }
 
     public static void FollowOnFb(Context c,String PageId,String PageLink){
+        Intent fbintent;
         try {
-            Intent fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/187646031724588/"));
+            fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"+PageId));
             c.startActivity(fbintent);
         } catch (Exception e) {
-            Intent fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/OsmAndroid/"));
+            fbintent = new Intent(Intent.ACTION_VIEW, Uri.parse(PageLink));
             c.startActivity(fbintent);
         }
 
     }
 
     public static void MoreApps(Context c,String Dev_Name){
-        String attach ="0";
+        String attach ="developer?id=";
         xmethod(c,attach+Dev_Name);
     }
 
@@ -36,6 +40,25 @@ public class Task extends Activity{
         Uri datas = Uri.parse("mailto:"+Mail+"?subject="+Subject);
         intentmail.setData(datas);
         c.startActivity(intentmail);
+    }
+
+    public static void ShareApp(Context c,String PackageName,String Subject,String Description){
+        String applink = "https://play.google.com/store/apps/"+PackageName;
+        Intent share =new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_SUBJECT,Subject);
+        share.putExtra(Intent.EXTRA_TEXT,Description+": "+applink);
+        c.startActivity(Intent.createChooser(share,"Share via"));
+    }
+
+    public static void CopyText(Context c,String text){
+        ClipboardManager clipboardManager = (ClipboardManager) c.getSystemService(CLIPBOARD_SERVICE);
+        ClipData clipData = ClipData.newPlainText("Text Copied",text);
+           if (clipboardManager != null) {
+               clipboardManager.setPrimaryClip(clipData);
+               Toast.makeText(c, "Text Copied", Toast.LENGTH_SHORT).show();
+
+           }
     }
 
     @SuppressLint("InlinedApi")
@@ -55,4 +78,6 @@ public class Task extends Activity{
                     Uri.parse(applink + name)));
         }
     }
+
+
 }
