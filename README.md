@@ -1,3 +1,4 @@
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-ProjectBasics-green.svg?style=flat )]
 
 [![](https://jitpack.io/v/OsmAndroid/ProjectBasics.svg)](https://jitpack.io/#OsmAndroid/ProjectBasics)
 
