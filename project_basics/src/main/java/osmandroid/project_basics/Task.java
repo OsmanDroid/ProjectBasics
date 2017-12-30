@@ -9,7 +9,9 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+
 
 public class Task extends Activity{
 
@@ -30,6 +32,7 @@ public class Task extends Activity{
 
     }
 
+
     public static void MoreApps(Context c,String Dev_Name){
         String attach ="developer?id=";
         xmethod(c,attach+Dev_Name);
@@ -43,7 +46,7 @@ public class Task extends Activity{
     }
 
     public static void ShareApp(Context c,String PackageName,String Subject,String Description){
-        String applink = "https://play.google.com/store/apps/"+PackageName;
+        String applink = "https://play.google.com/store/apps/details?id="+PackageName;
         Intent share =new Intent(Intent.ACTION_SEND);
         share.setType("text/plain");
         share.putExtra(Intent.EXTRA_SUBJECT,Subject);
@@ -56,9 +59,33 @@ public class Task extends Activity{
         ClipData clipData = ClipData.newPlainText("Text Copied",text);
            if (clipboardManager != null) {
                clipboardManager.setPrimaryClip(clipData);
-               Toast.makeText(c, "Text Copied", Toast.LENGTH_SHORT).show();
+               showtoast(c,"Text Copied");
            }
     }
+
+    public static void LaunchUrl(Context c,String url){
+       try {
+           c.startActivity(new Intent(Intent.ACTION_VIEW,
+                   Uri.parse(url)));
+       }catch (Exception e){
+           if(url.startsWith("http://") || url.startsWith("https;//"))
+           showtoast(c,"No Browser Installed");
+           showtoast(c,"Invalid url,it must start with http://");
+       }
+    }
+
+
+    public static void HideSoftKeyBoard(Activity activity){
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
+        try {
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+            }
+        }catch (NullPointerException e){
+           showtoast(activity,"Error Occured");
+        }
+    }
+
 
     @SuppressLint("InlinedApi")
     private static   void xmethod(Context c, String name) {
@@ -78,5 +105,9 @@ public class Task extends Activity{
         }
     }
 
+
+    private static void showtoast(Context c,String msg){
+        Toast.makeText(c,msg,Toast.LENGTH_SHORT).show();
+    }
 
 }
