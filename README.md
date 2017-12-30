@@ -77,5 +77,9 @@ dependencies {
   Task.CopyText(context,"text to be copied as a string");
   ```
 
-
+* Hide Soft Input Keyboard
+  
+  ```
+  Task.HideSoftKeyBoard(Activity context);
+  ```
   
