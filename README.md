@@ -22,7 +22,7 @@ allprojects {
 >Add the dependency to your module build.gradle:
 ```
 dependencies {
-	        compile 'com.github.OsmAndroid:ProjectBasics:1.2'
+	        compile 'com.github.OsmAndroid:ProjectBasics:1.3.0'
 	}
 
   ```
